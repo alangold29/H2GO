@@ -26,7 +26,7 @@ function Router() {
 function BookingLayout() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Header solid />
       <Booking />
       <Footer />
     </div>
@@ -36,7 +36,7 @@ function BookingLayout() {
 function LoginLayout() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Header solid />
       <Login />
       <Footer />
     </div>

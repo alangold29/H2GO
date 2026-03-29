@@ -3,18 +3,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe, LogIn } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-export default function Header() {
+interface HeaderProps {
+  solid?: boolean;
+}
+
+export default function Header({ solid = false }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { lang, toggleLang, t } = useLanguage();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    if (solid) return;
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [solid]);
 
   const navItems = [
     { label: t('Programs', 'Programas'), href: '#programs' },
@@ -24,25 +27,27 @@ export default function Header() {
     { label: t('FAQ', 'Preguntas'), href: '#faq' },
   ];
 
-  return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+  const headerClass = solid
+    ? 'relative w-full bg-white border-b border-border py-3 z-50'
+    : `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/80 backdrop-blur-md shadow-sm py-3'
           : 'bg-transparent py-5'
-      }`}
-    >
+      }`;
+
+  return (
+    <header className={headerClass}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          
+
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
+          <a href="/" className="flex items-center gap-2 group">
             <div className="relative w-10 h-10 overflow-hidden rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center">
-               <img 
-                 src={`${import.meta.env.BASE_URL}images/h2go-logo.png`} 
-                 alt="H2GO Logo" 
-                 className="w-8 h-8 object-contain"
-               />
+              <img
+                src={`${import.meta.env.BASE_URL}images/h2go-logo.png`}
+                alt="H2GO Logo"
+                className="w-8 h-8 object-contain"
+              />
             </div>
             <span className="font-display font-bold text-2xl tracking-tight text-primary">
               H2GO

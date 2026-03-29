@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight } from 'lucide-react';
 
@@ -62,41 +61,32 @@ export default function Programs() {
     <section id="programs" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-primary font-bold tracking-wider uppercase text-sm mb-3">
-              {t('Our Programs', 'Nuestros Programas')}
-            </h2>
-            <h3 className="text-4xl lg:text-5xl font-extrabold mb-6">
-              {t('Swim Classes for ', 'Clases de Natación para ')}
-              <span className="text-gradient">{t('Every Age', 'Todas las Edades')}</span>
-            </h3>
-            <p className="text-muted-foreground text-lg">
-              {t(
-                'We follow a proven methodology that ensures steady progress, safety, and most importantly, a love for the water.',
-                'Seguimos una metodología probada que asegura un progreso constante, seguridad y, lo más importante, amor por el agua.'
-              )}
-            </p>
-          </motion.div>
+          <h2 className="text-primary font-bold tracking-wider uppercase text-sm mb-3">
+            {t('Our Programs', 'Nuestros Programas')}
+          </h2>
+          <h3 className="text-4xl lg:text-5xl font-extrabold mb-6">
+            {t('Swim Classes for ', 'Clases de Natación para ')}
+            <span className="text-gradient">{t('Every Age', 'Todas las Edades')}</span>
+          </h3>
+          <p className="text-muted-foreground text-lg">
+            {t(
+              'We follow a proven methodology that ensures steady progress, safety, and most importantly, a love for the water.',
+              'Seguimos una metodología probada que asegura un progreso constante, seguridad y, lo más importante, amor por el agua.'
+            )}
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {programs.map((program, i) => (
-            <motion.div
+          {programs.map((program) => (
+            <div
               key={program.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
               className="bg-white rounded-[2rem] overflow-hidden shadow-lg shadow-black/5 border border-border/50 hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col"
             >
               <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={program.img} 
+                <img
+                  src={program.img}
                   alt={program.title}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary">
@@ -113,7 +103,7 @@ export default function Programs() {
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

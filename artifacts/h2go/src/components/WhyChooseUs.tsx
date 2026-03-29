@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { HeartPulse, Droplets, Award, GraduationCap, Sparkles, Smile } from 'lucide-react';
 
@@ -42,14 +41,9 @@ export default function WhyChooseUs() {
     <section id="why-us" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-16">
-          
+
           <div className="lg:col-span-1">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="sticky top-32"
-            >
+            <div className="sticky top-32">
               <h2 className="text-primary font-bold tracking-wider uppercase text-sm mb-3">
                 {t('Why Choose H2GO', 'Por Qué Elegir H2GO')}
               </h2>
@@ -63,23 +57,20 @@ export default function WhyChooseUs() {
                   "Creemos que nadar es una habilidad vital. Por eso hemos creado un entorno donde aprender es alegre, seguro y altamente efectivo."
                 )}
               </p>
-              
-              <img 
-                src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&q=80&w=600&h=500" 
-                alt="Clean modern swimming pool" 
+
+              <img
+                src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&q=80&w=600&h=500"
+                alt="Clean modern swimming pool"
+                loading="lazy"
                 className="rounded-3xl shadow-xl rotate-2 hover:rotate-0 transition-transform duration-500"
               />
-            </motion.div>
+            </div>
           </div>
 
           <div className="lg:col-span-2 grid sm:grid-cols-2 gap-8">
             {reasons.map((reason, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
               >
                 <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary mb-6">
@@ -89,7 +80,7 @@ export default function WhyChooseUs() {
                 <p className="text-muted-foreground leading-relaxed">
                   {reason.desc}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
 

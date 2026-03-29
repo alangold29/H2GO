@@ -72,6 +72,7 @@ export default function Hero() {
         loop
         muted
         playsInline
+        preload="none"
         className="absolute inset-0 w-full h-full object-cover z-0"
         src="https://assets.mixkit.co/videos/preview/mixkit-swimming-pool-water-loop-4017-large.mp4"
       />
@@ -87,12 +88,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
           {/* Left text */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="max-w-2xl"
-          >
+          <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/50 text-secondary-foreground font-semibold text-sm mb-6">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               {t('Premium Swim School in Lima', 'Escuela de Natación Premium en Lima')}
@@ -134,13 +130,10 @@ export default function Hero() {
                 'Clases de natación seguras y divertidas para niños, adolescentes y adultos en Lima.'
               )}
             </p>
-          </motion.div>
+          </div>
 
           {/* Right slider */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
+          <div
             className="relative"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
@@ -222,7 +215,7 @@ export default function Hero() {
                 />
               ))}
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>

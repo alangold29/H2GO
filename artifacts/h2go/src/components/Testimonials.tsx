@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Star } from 'lucide-react';
 
@@ -47,12 +46,8 @@ export default function Testimonials() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((test, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
               className="bg-white p-8 rounded-[2rem] shadow-lg shadow-black/5 border border-border/50 relative"
             >
               <div className="flex gap-1 mb-6 text-accent">
@@ -72,7 +67,7 @@ export default function Testimonials() {
                   <p className="text-sm text-muted-foreground">{test.role}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

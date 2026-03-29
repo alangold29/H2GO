@@ -67,12 +67,8 @@ export default function FAQ() {
 
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
               className="border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
               <button
@@ -86,14 +82,14 @@ export default function FAQ() {
                   }`}
                 />
               </button>
-              
+
               <AnimatePresence>
                 {openIndex === i && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.25 }}
                   >
                     <div className="px-6 pb-5 pt-2 text-muted-foreground border-t border-border/50 bg-slate-50/50">
                       {faq.a}
@@ -101,7 +97,7 @@ export default function FAQ() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

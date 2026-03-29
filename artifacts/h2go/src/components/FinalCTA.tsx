@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight } from 'lucide-react';
 
@@ -8,12 +7,7 @@ export default function FinalCTA() {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="water-gradient rounded-[3rem] p-10 md:p-16 text-center text-white shadow-2xl shadow-primary/30 relative overflow-hidden"
-        >
+        <div className="water-gradient rounded-[3rem] p-10 md:p-16 text-center text-white shadow-2xl shadow-primary/30 relative overflow-hidden">
           {/* Decor */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
@@ -36,7 +30,7 @@ export default function FinalCTA() {
               <ArrowRight className="w-6 h-6 ml-2" />
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

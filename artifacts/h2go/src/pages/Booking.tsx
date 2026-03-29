@@ -23,28 +23,32 @@ const instructors = [
     specialty: { en: 'Kids & Babies', es: 'Niños y Bebés' },
     exp: { en: '8 yrs experience', es: '8 años de experiencia' },
     rating: 4.9,
-    img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200&h=200',
+    initials: 'AT',
+    color: 'from-[#023e8a] to-[#0077b6]',
   },
   {
     name: 'Carlos Ríos',
     specialty: { en: 'Adults & Teens', es: 'Adultos y Adolescentes' },
     exp: { en: '12 yrs experience', es: '12 años de experiencia' },
     rating: 5.0,
-    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200',
+    initials: 'CR',
+    color: 'from-[#0077b6] to-[#0096c7]',
   },
   {
     name: 'Sofía Mendez',
     specialty: { en: 'Private Coaching', es: 'Entrenamiento Privado' },
     exp: { en: '6 yrs experience', es: '6 años de experiencia' },
     rating: 4.8,
-    img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200&h=200',
+    initials: 'SM',
+    color: 'from-[#0096c7] to-[#00b4d8]',
   },
   {
     name: 'Miguel Vega',
     specialty: { en: 'Teen Development', es: 'Desarrollo Adolescente' },
     exp: { en: '9 yrs experience', es: '9 años de experiencia' },
     rating: 4.7,
-    img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&h=200',
+    initials: 'MV',
+    color: 'from-[#5e60ce] to-[#7400b8]',
   },
 ];
 
@@ -243,7 +247,7 @@ export default function Booking() {
                         ${selectedInstructor === i ? 'border-primary bg-primary/5' : 'border-border hover:border-primary hover:bg-primary/5'}`}
                     >
                       <div className="flex items-center gap-3 mb-3">
-                        <img src={ins.img} alt={ins.name} className="w-12 h-12 rounded-full object-cover" />
+                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${ins.color} flex items-center justify-center text-white font-bold text-base shrink-0`}>{ins.initials}</div>
                         <div>
                           <p className="font-bold text-foreground">{ins.name}</p>
                           <p className="text-sm text-muted-foreground">{lang === 'en' ? ins.specialty.en : ins.specialty.es}</p>

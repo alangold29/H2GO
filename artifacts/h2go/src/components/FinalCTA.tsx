@@ -19,7 +19,7 @@ export default function FinalCTA() {
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
 
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight text-white">
               {t('Ready to Dive In?', '¿Listo para Sumergirte?')}
             </h2>
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10">

@@ -1,0 +1,15 @@
+packages:
+  "framer-motion": "For premium smooth scroll animations and entry reveals"
+
+images:
+  - path: "artifacts/h2go/public/images/h2go-logo.png"
+    description: "A premium, modern logo for 'H2GO' a swimming school, featuring abstract clean geometric water waves in rich deep blue and bright cyan tones, transparent background, minimalist vector style."
+    aspect_ratio: "1:1"
+  - path: "artifacts/h2go/public/images/water-texture.png"
+    description: "Abstract, clean, premium pool water surface texture from directly above, rippling light caustics, soft bright cyan and sky blue, seamless background aesthetic."
+    aspect_ratio: "16:9"
+
+notes:
+  - Homepage is a pure UI wireframe as requested, no real backend endpoints used.
+  - State is managed via React Context (for bilingual EN/ES support).
+  - Smooth scrolling uses CSS scroll-behavior and native anchor tags.

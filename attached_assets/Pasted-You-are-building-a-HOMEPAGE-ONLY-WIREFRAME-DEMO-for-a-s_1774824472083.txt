@@ -1,0 +1,212 @@
+You are building a HOMEPAGE-ONLY WIREFRAME / DEMO for a swimming school in Lima, Peru.
+
+IMPORTANT:
+- This is HOMEPAGE ONLY.
+- Build a polished clickable demo homepage with strong visual vibe.
+- No backend.
+- No database.
+- No real booking logic.
+- No auth.
+- No forms need to submit.
+- All buttons can exist visually, but no real links or functionality are needed yet.
+- Navigation items should be visible, but do not need working destinations yet.
+- Use sample/demo content only.
+- The homepage must load in ENGLISH by default.
+- Add a language switcher in the header with a small Spanish flag visible.
+- Also prepare all homepage content in SPANISH so the site is bilingual-ready.
+- You can mock the language switch visually or make it toggle between English and Spanish on the homepage only.
+- Keep everything professional, premium, warm, family-friendly, and modern.
+
+PROJECT GOAL:
+Create a high-converting, emotionally strong homepage for a swim school in Lima that feels trustworthy, joyful, safe, and premium.
+The vibe should focus on:
+- happy kids swimming
+- children learning to swim
+- instructors helping students
+- family trust
+- clean swimming pool visuals
+- lots of blue tones
+- bright, fresh, confident aquatic branding
+
+DESIGN DIRECTION:
+- Main palette: multiple rich blues, aqua, sky blue, pool-water blue, white
+- Accent colors allowed: soft teal / sunny accent for CTA contrast
+- Feel: modern, premium, safe, clean, energetic, family-focused
+- Use large high-quality demo images:
+  - happy kids swimming
+  - children learning in pool
+  - smiling swim instructor with child
+  - pool environment
+  - family-friendly aquatic scenes
+- Avoid dark heavy corporate feel
+- Avoid cheap generic sports-club feel
+- Make it emotional, local, and inviting
+
+TECH / BUILD:
+- Build in React with a clean modern component structure
+- Responsive desktop-first but also mobile-friendly
+- Smooth scrolling and subtle motion/animation
+- Use reusable sections/components
+- No placeholder blocks if possible — use polished demo layout and polished sample copy
+- Use real-looking stock/demo imagery, not empty gray placeholders
+- Keep performance reasonable
+
+HEADER:
+Include:
+- logo placeholder / swim school brand placeholder
+- nav items visible
+- language switcher with EN and Spanish flag / ES option
+- CTA button top right
+
+Suggested nav items:
+- Home
+- Programs
+- About
+- Why Choose Us
+- Testimonials
+- FAQ
+- Contact
+
+HERO SECTION:
+Must be visually strong.
+Layout:
+- large left-side headline + subheadline + CTA
+- right side or background with strong swimming/lifestyle image
+- include happy children in swimming pool / instructor guidance
+- add 2 CTAs:
+  - Book a Trial Class
+  - View Programs
+- add a short trust line under CTA, something like:
+  - Safe, fun swim lessons for children, teens, and adults in Lima
+
+Suggested EN hero copy:
+Headline:
+Confidence Starts in the Water
+
+Subheadline:
+Professional swim lessons in Lima for children, teens, and adults — taught in a safe, fun, and supportive environment.
+
+Suggested ES hero copy:
+Headline:
+La confianza comienza en el agua
+
+Subheadline:
+Clases profesionales de natación en Lima para niños, adolescentes y adultos, en un entorno seguro, divertido y de apoyo.
+
+TRUST / VALUE STRIP:
+Add 3 to 5 quick value points with icons:
+- Safe Learning Environment
+- Experienced Instructors
+- Small Group Attention
+- Heated / Clean Pool
+- Programs for All Ages
+
+PROGRAMS SECTION:
+Create attractive cards for key swim programs.
+Suggested cards:
+- Babies & Toddlers
+- Kids Swim Lessons
+- Teen Development
+- Adult Swim Lessons
+- Private Coaching
+
+Each card should have short EN + ES-ready text.
+
+WHY CHOOSE US SECTION:
+This section should feel very strong.
+Use icons or feature blocks.
+Suggested points:
+- Learn with confidence
+- Patient instructors
+- Step-by-step progress
+- Family-friendly atmosphere
+- Clean pool facilities
+- Bilingual-friendly environment
+
+POOL / GALLERY LIFESTYLE SECTION:
+Create a section with strong visual storytelling:
+- kids smiling in the pool
+- student + instructor interaction
+- clean blue pool water
+- positive learning energy
+Add a short text block about building skills, safety, and confidence.
+
+METHODOLOGY SECTION:
+Show how learning works in 3 steps:
+1. Get comfortable in the water
+2. Build technique and confidence
+3. Swim stronger and safer
+
+TESTIMONIALS SECTION:
+Add 3 demo testimonials from parents / students.
+Make them believable and warm.
+Focus on:
+- child overcame fear
+- safe environment
+- patient teachers
+- visible progress
+
+BILINGUAL / LOCAL TOUCH:
+Add a subtle section or header support element that makes the brand feel ready for Lima, Peru.
+Do not overdo tourist content.
+Keep it local and professional.
+You may reference:
+- Lima, Peru
+- trusted by local families
+- swim lessons for the Lima community
+
+FAQ PREVIEW SECTION:
+Add 4–6 homepage FAQ items such as:
+- What ages do you teach?
+- Do you offer beginner lessons?
+- Are private lessons available?
+- Is the pool heated?
+- Can I start with a trial class?
+- Is Spanish available?
+
+FINAL CTA SECTION:
+Strong call to action with pool image or blue gradient background.
+Suggested CTA:
+Ready to Start Swimming with Confidence?
+Book your trial class and discover a safe, joyful way to learn in the water.
+
+FOOTER:
+Simple professional footer with:
+- logo placeholder
+- nav links
+- contact info placeholders
+- Lima, Peru
+- social placeholders
+- language note (English / Español)
+
+CONTENT RULES:
+- Homepage content must exist in English and Spanish
+- English loads first
+- Spanish must be available in the same build
+- Make all copy polished and sales-focused
+- Keep tone warm, confident, family-friendly, and premium
+- No lorem ipsum
+- No fake technical complexity
+- No extra pages
+
+UX DETAILS:
+- Smooth section spacing
+- Rounded cards
+- modern shadows
+- premium buttons
+- subtle gradients
+- clean typography
+- image-first storytelling
+- strong mobile responsiveness
+- polished hero section is critical
+
+BRAND FEEL IN ONE LINE:
+A premium, family-friendly swim school homepage for Lima that feels joyful, safe, blue, and full of life.
+
+DELIVERABLE:
+A fully designed HOMEPAGE ONLY demo/wireframe with:
+- visible nav
+- bilingual-ready content
+- strong imagery direction
+- real vibe
+- no backend or real functionality yet

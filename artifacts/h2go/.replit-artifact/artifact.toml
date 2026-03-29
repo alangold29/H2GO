@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "H2GO Swimming School"
+version = "1.0.0"
+id = "artifacts/h2go"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22900
+
+[services.development]
+run = "pnpm --filter @workspace/h2go run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/h2go", "run", "build" ]
+publicDir = "artifacts/h2go/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22900"
+BASE_PATH = "/"

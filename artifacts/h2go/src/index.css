@@ -117,3 +117,26 @@
 .water-gradient {
   @apply bg-gradient-to-br from-primary via-[#0077b6] to-[#00b4d8];
 }
+
+/* Animated water shimmer — used as CSS fallback behind the hero video */
+@keyframes water-move {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.water-shimmer-bg {
+  background: linear-gradient(
+    135deg,
+    #bde0f5 0%,
+    #90d2f0 15%,
+    #caf0f8 30%,
+    #48cae4 45%,
+    #a8dadc 60%,
+    #0096c7 75%,
+    #ade8f4 90%,
+    #bde0f5 100%
+  );
+  background-size: 400% 400%;
+  animation: water-move 8s ease infinite;
+}

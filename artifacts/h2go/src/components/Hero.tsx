@@ -65,9 +65,23 @@ export default function Hero() {
   const slide = slides[current];
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-blue-50/50 to-white">
-      <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 rounded-full bg-secondary/40 blur-3xl opacity-60" />
-      <div className="absolute bottom-0 left-0 -ml-32 -mb-32 w-96 h-96 rounded-full bg-primary/10 blur-3xl opacity-60" />
+    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      {/* Water video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src="https://assets.mixkit.co/videos/preview/mixkit-swimming-pool-water-loop-4017-large.mp4"
+      />
+      {/* CSS shimmer fallback — visible if video hasn't loaded yet */}
+      <div className="absolute inset-0 z-0 water-shimmer-bg" />
+      {/* Overlay — shows white/blue with water visible through it */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-white/78 via-sky-50/68 to-white/84" />
+
+      <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 rounded-full bg-secondary/40 blur-3xl opacity-50 z-[2]" />
+      <div className="absolute bottom-0 left-0 -ml-32 -mb-32 w-96 h-96 rounded-full bg-primary/10 blur-3xl opacity-50 z-[2]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">

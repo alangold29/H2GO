@@ -72,7 +72,7 @@ export default function Header() {
               <span>{lang === 'en' ? 'EN / ES' : 'ES / EN'}</span>
             </button>
             <a
-              href="#programs"
+              href="/booking"
               className="px-5 py-2.5 rounded-full font-semibold text-sm bg-primary text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
             >
               {t('Book a Trial', 'Reserva una Prueba')}
@@ -119,7 +119,7 @@ export default function Header() {
                 </button>
               </div>
               <a
-                href="#programs"
+                href="/booking"
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-4 w-full text-center px-6 py-3 rounded-xl font-bold bg-primary text-white shadow-lg shadow-primary/25"
               >

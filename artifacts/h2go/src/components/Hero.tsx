@@ -113,7 +113,7 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <a
-                href="#programs"
+                href="/booking"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-primary rounded-2xl shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300"
               >
                 {t('Book a Trial Class', 'Reserva una Clase')}

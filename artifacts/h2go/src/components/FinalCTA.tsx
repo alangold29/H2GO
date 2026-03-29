@@ -29,8 +29,7 @@ export default function FinalCTA() {
               )}
             </p>
             <a
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); alert("Demo Action: Booking form opened!"); }}
+              href="/booking"
               className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-primary bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
               {t('Book Your Trial Class', 'Reserva tu Clase de Prueba')}

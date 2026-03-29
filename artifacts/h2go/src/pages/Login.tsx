@@ -40,6 +40,7 @@ export default function Login() {
   const handleLogin = (key: string) => {
     if (key === 'admin') { window.location.href = '/admin'; return; }
     if (key === 'staff') { window.location.href = '/staff'; return; }
+    if (key === 'client') { window.location.href = '/client'; return; }
     setSelected(key);
     setLoggedIn(true);
   };

@@ -38,6 +38,8 @@ export default function Login() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = (key: string) => {
+    if (key === 'admin') { window.location.href = '/admin'; return; }
+    if (key === 'staff') { window.location.href = '/staff'; return; }
     setSelected(key);
     setLoggedIn(true);
   };

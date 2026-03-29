@@ -6,6 +6,8 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Home from "@/pages/Home";
 import Booking from "@/pages/Booking";
 import Login from "@/pages/Login";
+import AdminDashboard from "@/pages/AdminDashboard";
+import StaffDashboard from "@/pages/StaffDashboard";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NotFound from "@/pages/not-found";
@@ -18,6 +20,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/booking" component={BookingLayout} />
       <Route path="/login" component={LoginLayout} />
+      <Route path="/admin" component={AdminDashboard} />
+      <Route path="/staff" component={StaffDashboard} />
       <Route component={NotFound} />
     </Switch>
   );

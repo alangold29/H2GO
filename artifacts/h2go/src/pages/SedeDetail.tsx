@@ -3,8 +3,68 @@ import { useRoute } from 'wouter';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import NotFound from '@/pages/not-found';
-import { sedesById, sedesData } from '@/data/sedes';
-import { MapPin, Phone, Clock, CheckCircle, ArrowRight, ChevronLeft } from 'lucide-react';
+import { sedesById, sedesData, type PricingGroup } from '@/data/sedes';
+import { MapPin, Phone, Clock, CheckCircle, ArrowRight, ChevronLeft, Tag } from 'lucide-react';
+
+function PricingTable({ group }: { group: PricingGroup }) {
+  const hasPromo = group.promoHeader && group.rows.some((r) => r.promo?.some(Boolean));
+  const colCount = group.colHeaders.length;
+
+  return (
+    <div className="mb-6 last:mb-0">
+      <h4 className="font-bold text-base text-foreground mb-3">{group.title}</h4>
+      <div className="overflow-x-auto rounded-2xl border border-border/50 shadow-sm">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="bg-primary text-white">
+              <th className="text-left py-3 px-4 font-semibold text-xs uppercase tracking-wide w-2/5">
+                Frecuencia
+              </th>
+              {group.colHeaders.map((h, i) => (
+                <th key={i} className="text-center py-3 px-4 font-semibold text-xs uppercase tracking-wide">
+                  {h}
+                </th>
+              ))}
+              {hasPromo && (
+                <th
+                  colSpan={colCount}
+                  className="text-center py-3 px-4 font-semibold text-xs uppercase tracking-wide bg-amber-500"
+                >
+                  {group.promoHeader}
+                </th>
+              )}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-border/30">
+            {group.rows.map((row, i) => (
+              <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'}>
+                <td className="py-3 px-4 font-medium text-foreground/80">{row.label}</td>
+                {row.cols.map((price, j) => (
+                  <td key={j} className="py-3 px-4 text-center font-bold text-primary">
+                    {price ?? <span className="text-muted-foreground font-normal text-xs">—</span>}
+                  </td>
+                ))}
+                {hasPromo && row.promo?.map((price, j) => (
+                  <td key={j} className="py-3 px-4 text-center font-bold text-amber-600">
+                    {price ?? <span className="text-muted-foreground font-normal text-xs">—</span>}
+                  </td>
+                ))}
+                {hasPromo && !row.promo && Array.from({ length: colCount }).map((_, j) => (
+                  <td key={j} className="py-3 px-4 text-center">
+                    <span className="text-muted-foreground font-normal text-xs">—</span>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {group.note && (
+        <p className="text-xs text-muted-foreground mt-2 pl-1 italic">{group.note}</p>
+      )}
+    </div>
+  );
+}
 
 export default function SedeDetail() {
   const [, params] = useRoute('/sede/:id');
@@ -57,13 +117,14 @@ export default function SedeDetail() {
           </div>
         </section>
 
-        {/* Info + Servicios */}
+        {/* Info + Contenido principal */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-10">
 
-              {/* Info Cards */}
+              {/* Sidebar */}
               <div className="space-y-6">
+                {/* Contacto y Horarios */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -88,6 +149,7 @@ export default function SedeDetail() {
                   </div>
                 </motion.div>
 
+                {/* Programas */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -106,6 +168,7 @@ export default function SedeDetail() {
                   </ul>
                 </motion.div>
 
+                {/* CTA */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -122,8 +185,10 @@ export default function SedeDetail() {
                 </motion.div>
               </div>
 
-              {/* Description + Photos */}
-              <div className="lg:col-span-2 space-y-8">
+              {/* Main content */}
+              <div className="lg:col-span-2 space-y-10">
+
+                {/* Descripción */}
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +201,30 @@ export default function SedeDetail() {
                   </p>
                 </motion.div>
 
-                {/* Photo gallery */}
+                {/* Tarifas */}
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: 0.05 }}
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                      <Tag className="w-5 h-5 text-primary" />
+                    </div>
+                    <h2 className="text-3xl font-extrabold">Tarifas Mensuales</h2>
+                  </div>
+                  <div className="bg-white rounded-[1.5rem] border border-border/50 shadow-md p-7 space-y-8">
+                    {sede.pricing.map((group, i) => (
+                      <PricingTable key={i} group={group} />
+                    ))}
+                    <p className="text-xs text-muted-foreground pt-2 border-t border-border/40">
+                      * Precios en soles peruanos (S/). Para consultas de precios especiales o descuentos, comunícate directamente con la sede.
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Fotos */}
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}

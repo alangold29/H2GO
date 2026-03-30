@@ -1,16 +1,21 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe, LogIn } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Menu, X, LogIn } from 'lucide-react';
 
 interface HeaderProps {
   solid?: boolean;
 }
 
+const navItems = [
+  { label: 'Nosotros', href: '/nosotros' },
+  { label: 'Metodología', href: '/metodologia' },
+  { label: 'Programas', href: '/#programs' },
+  { label: 'Preguntas', href: '/#faq' },
+];
+
 export default function Header({ solid = false }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { lang, toggleLang, t } = useLanguage();
 
   useEffect(() => {
     if (solid) return;
@@ -18,13 +23,6 @@ export default function Header({ solid = false }: HeaderProps) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [solid]);
-
-  const navItems = [
-    { label: t('About Us', 'Nosotros'), href: '/nosotros' },
-    { label: t('Methodology', 'Metodología'), href: '/metodologia' },
-    { label: t('Programs', 'Programas'), href: '/#programs' },
-    { label: t('FAQ', 'Preguntas'), href: '/#faq' },
-  ];
 
   const headerClass = solid
     ? 'relative w-full bg-white border-b border-border py-3 z-50'
@@ -68,16 +66,9 @@ export default function Header({ solid = false }: HeaderProps) {
 
           {/* Actions */}
           <div className="hidden md:flex items-center gap-3">
-            <button
-              onClick={toggleLang}
-              className="flex items-center gap-1.5 text-sm font-semibold text-foreground/70 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-muted"
-            >
-              <Globe className="w-4 h-4" />
-              <span>{lang === 'en' ? 'EN / ES' : 'ES / EN'}</span>
-            </button>
             <a
               href="/login"
-              title={t('Login', 'Iniciar sesión')}
+              title="Iniciar sesión"
               className="flex items-center justify-center w-9 h-9 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/10 transition-all duration-200"
             >
               <LogIn className="w-5 h-5" />
@@ -86,7 +77,7 @@ export default function Header({ solid = false }: HeaderProps) {
               href="/matricula"
               className="px-5 py-2.5 rounded-full font-semibold text-sm bg-primary text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
             >
-              {t('Enroll Now', 'Matricúlate')}
+              Matricúlate
             </a>
           </div>
 
@@ -120,21 +111,14 @@ export default function Header({ solid = false }: HeaderProps) {
                   {item.label}
                 </a>
               ))}
-              <div className="flex items-center justify-between pt-4">
-                <button
-                  onClick={toggleLang}
-                  className="flex items-center gap-2 text-base font-semibold"
-                >
-                  <Globe className="w-5 h-5" />
-                  {lang === 'en' ? 'Switch to Spanish' : 'Cambiar a Inglés'}
-                </button>
+              <div className="flex items-center justify-end pt-4">
                 <a
                   href="/login"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center gap-2 text-base font-semibold text-foreground/70 hover:text-primary transition-colors"
                 >
                   <LogIn className="w-5 h-5" />
-                  {t('Login', 'Iniciar sesión')}
+                  Iniciar sesión
                 </a>
               </div>
               <a
@@ -142,7 +126,7 @@ export default function Header({ solid = false }: HeaderProps) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-4 w-full text-center px-6 py-3 rounded-xl font-bold bg-primary text-white shadow-lg shadow-primary/25"
               >
-                {t('Enroll Now', 'Matricúlate')}
+                Matricúlate
               </a>
             </div>
           </motion.div>

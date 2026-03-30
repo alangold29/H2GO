@@ -1,6 +1,7 @@
 import { motion, type Variants } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { sedesData } from '@/data/sedes';
 import { MapPin, Clock, ArrowRight, CheckCircle, Phone } from 'lucide-react';
 
 const fadeUp: Variants = {
@@ -12,79 +13,6 @@ const stagger: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.08 } },
 };
-
-const sedes = [
-  {
-    id: 'jockey-club',
-    name: 'Jockey Club del Perú',
-    district: 'San Borja',
-    address: 'Av. Javier Prado Este 1852, San Borja',
-    hours: 'Lun–Sáb: 7:00 am – 7:00 pm',
-    img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&q=80&w=800&h=480',
-    desc: 'Nuestra sede principal con piscina temperada de 25 metros e instalaciones de primera clase.',
-    programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Semillero', 'Equipo H2GO'],
-  },
-  {
-    id: 'petroperu',
-    name: 'Club Petroperú',
-    district: 'Miraflores',
-    address: 'Av. El Rosario 250, Miraflores',
-    hours: 'Lun–Sáb: 6:30 am – 6:30 pm',
-    img: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?auto=format&fit=crop&q=80&w=800&h=480',
-    desc: 'Ambiente exclusivo con piscina semi-olímpica y vista panorámica. Perfecta para familias de Miraflores.',
-    programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Nado Libre'],
-  },
-  {
-    id: 'santa-clara',
-    name: 'Santa Clara',
-    district: 'Ate',
-    address: 'Av. La Molina 1245, Ate',
-    hours: 'Lun–Sáb: 8:00 am – 7:00 pm',
-    img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=800&h=480',
-    desc: 'Instalaciones modernas con instructores altamente calificados para el cono este de Lima.',
-    programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Semillero'],
-  },
-  {
-    id: 'brena',
-    name: 'Breña',
-    district: 'Breña',
-    address: 'Av. Arica 621, Breña',
-    hours: 'Lun–Sáb: 7:30 am – 7:30 pm',
-    img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=800&h=480',
-    desc: 'Punto de referencia en el Centro de Lima. Fácil acceso en transporte público y horario amplio.',
-    programs: ['Niños/Adolescentes', 'Adultos', 'Nado Libre'],
-  },
-  {
-    id: 'club-chama',
-    name: 'Club Chama',
-    district: 'La Molina',
-    address: 'Av. La Molina 595, La Molina',
-    hours: 'Lun–Sáb: 7:00 am – 7:00 pm',
-    img: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&q=80&w=800&h=480',
-    desc: 'Una de nuestras sedes más exclusivas: piscina de 25 m, áreas verdes y estacionamiento amplio.',
-    programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Equipo H2GO'],
-  },
-  {
-    id: 'jean-le-boulch',
-    name: 'Jean Le Boulch',
-    district: 'San Miguel',
-    address: 'Av. Universitaria 1520, San Miguel',
-    hours: 'Lun–Sáb: 7:00 am – 6:30 pm',
-    img: 'https://images.unsplash.com/photo-1560090995-01632a28895b?auto=format&fit=crop&q=80&w=800&h=480',
-    desc: 'Instalaciones renovadas y equipo de instructores certificados para toda Lima Oeste.',
-    programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Semillero'],
-  },
-  {
-    id: 'aopip',
-    name: 'AOPIP',
-    district: 'Callao',
-    address: 'Av. Oscar Benavides 3480, Callao',
-    hours: 'Lun–Sáb: 8:00 am – 6:00 pm',
-    img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&q=80&w=800&h=480',
-    desc: 'La excelencia de H2GO en el Puerto Principal del Perú. Amplio acceso desde el aeropuerto.',
-    programs: ['Niños/Adolescentes', 'Adultos', 'Nado Libre'],
-  },
-];
 
 export default function Matricula() {
   return (
@@ -143,7 +71,7 @@ export default function Matricula() {
               viewport={{ once: true, margin: '-50px' }}
               className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"
             >
-              {sedes.map((sede) => (
+              {sedesData.map((sede) => (
                 <motion.div
                   key={sede.id}
                   variants={fadeUp}

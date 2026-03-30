@@ -1,6 +1,16 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Facebook, Instagram, MapPin, Phone, Mail } from 'lucide-react';
 
+const sedes = [
+  { id: 'jockey-club', name: 'Jockey Club del Perú' },
+  { id: 'petroperu', name: 'Club Petroperú' },
+  { id: 'santa-clara', name: 'Santa Clara' },
+  { id: 'brena', name: 'Breña' },
+  { id: 'club-chama', name: 'Club Chama' },
+  { id: 'jean-le-boulch', name: 'Jean Le Boulch' },
+  { id: 'aopip', name: 'AOPIP' },
+];
+
 export default function Footer() {
   const { t } = useLanguage();
 
@@ -11,7 +21,7 @@ export default function Footer() {
           
           {/* Brand */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <a href="#" className="flex items-center gap-2 mb-6">
+            <a href="/" className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
                  <img 
                    src={`${import.meta.env.BASE_URL}images/h2go-logo.png`} 
@@ -43,22 +53,26 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white text-lg mb-6">{t('Explore', 'Explorar')}</h4>
             <ul className="space-y-4 text-sm">
-              <li><a href="#programs" className="hover:text-primary transition-colors">{t('Programs', 'Programas')}</a></li>
-              <li><a href="#why-us" className="hover:text-primary transition-colors">{t('Why Choose Us', 'Por Qué Elegirnos')}</a></li>
-              <li><a href="#methodology" className="hover:text-primary transition-colors">{t('Methodology', 'Metodología')}</a></li>
-              <li><a href="#testimonials" className="hover:text-primary transition-colors">{t('Testimonials', 'Testimonios')}</a></li>
-              <li><a href="#faq" className="hover:text-primary transition-colors">FAQ</a></li>
+              <li><a href="/nosotros" className="hover:text-primary transition-colors">{t('About Us', 'Nosotros')}</a></li>
+              <li><a href="/metodologia" className="hover:text-primary transition-colors">{t('Methodology', 'Metodología')}</a></li>
+              <li><a href="/#programs" className="hover:text-primary transition-colors">{t('Programs', 'Programas')}</a></li>
+              <li><a href="/#testimonials" className="hover:text-primary transition-colors">{t('Testimonials', 'Testimonios')}</a></li>
+              <li><a href="/#faq" className="hover:text-primary transition-colors">FAQ</a></li>
+              <li><a href="/matricula" className="hover:text-primary transition-colors">{t('Enroll', 'Matrícula')}</a></li>
             </ul>
           </div>
 
-          {/* Programs */}
+          {/* Sedes */}
           <div>
-            <h4 className="font-bold text-white text-lg mb-6">{t('Programs', 'Programas')}</h4>
+            <h4 className="font-bold text-white text-lg mb-6">{t('Our Venues', 'Nuestras Sedes')}</h4>
             <ul className="space-y-4 text-sm">
-              <li><a href="#" className="hover:text-primary transition-colors">{t('Babies & Toddlers', 'Bebés')}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">{t('Kids Swimming', 'Niños')}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">{t('Teen Development', 'Adolescentes')}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">{t('Adult Lessons', 'Adultos')}</a></li>
+              {sedes.map((sede) => (
+                <li key={sede.id}>
+                  <a href={`/sede/${sede.id}`} className="hover:text-primary transition-colors">
+                    {sede.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -68,7 +82,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0" />
-                <span>Miraflores / San Isidro<br />Lima, Perú</span>
+                <span>7 {t('Venues across', 'Sedes en')} Lima, Perú</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />

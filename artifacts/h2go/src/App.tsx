@@ -9,6 +9,10 @@ import Login from "@/pages/Login";
 import AdminDashboard from "@/pages/AdminDashboard";
 import StaffDashboard from "@/pages/StaffDashboard";
 import ClientDashboard from "@/pages/ClientDashboard";
+import Nosotros from "@/pages/Nosotros";
+import Metodologia from "@/pages/Metodologia";
+import SedeDetail from "@/pages/SedeDetail";
+import Matricula from "@/pages/Matricula";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NotFound from "@/pages/not-found";
@@ -24,6 +28,10 @@ function Router() {
       <Route path="/admin" component={AdminDashboard} />
       <Route path="/staff" component={StaffDashboard} />
       <Route path="/client" component={ClientDashboard} />
+      <Route path="/nosotros" component={Nosotros} />
+      <Route path="/metodologia" component={Metodologia} />
+      <Route path="/sede/:id" component={SedeDetail} />
+      <Route path="/matricula" component={Matricula} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -260,14 +260,6 @@ export default function Nosotros() {
                     Fundador y Director de H2GO Swimming School
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {['Abogado Colegiado', 'DECAN', 'Campeón Nacional de Natación', 'Presidente FDPN 2021–2024', 'Panam Aquatics'].map((tag) => (
-                      <span key={tag} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
                   <p className="text-muted-foreground leading-relaxed mb-5">
                     Nikola Ustavdich es abogado colegiado, especialista en gestión de centros deportivos y deportista calificado de alto nivel (DECAN). Ha sido nadador mundialista, récord nacional y Campeón Nacional Absoluto de Natación durante 10 años consecutivos.
                   </p>

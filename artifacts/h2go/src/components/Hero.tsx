@@ -159,30 +159,6 @@ export default function Hero() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Badge overlay */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`badge-${current}`}
-                  initial={{ y: 16, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -8, opacity: 0 }}
-                  transition={{ duration: 0.35, delay: 0.15 }}
-                  className="absolute bottom-6 left-6 right-6 sm:right-auto bg-white/95 backdrop-blur rounded-2xl p-4 shadow-xl flex items-center gap-4 z-20"
-                >
-                  <div className="w-12 h-12 rounded-full bg-secondary/60 flex items-center justify-center text-2xl shrink-0">
-                    {slide.badge.icon}
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground">
-                      {lang === 'en' ? slide.badge.en : slide.badge.es}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {lang === 'en' ? slide.tag.en : slide.tag.es}
-                    </p>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-
               {/* Prev / Next arrows */}
               <button
                 onClick={prev}

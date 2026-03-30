@@ -60,7 +60,11 @@ export default function WhyChooseUs() {
             {reasons.map((reason, i) => (
               <div
                 key={i}
-                className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+                className={`p-8 rounded-[2rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-primary/5 transition-all duration-300${
+                  i === reasons.length - 1 && reasons.length % 2 !== 0
+                    ? ' sm:col-span-2 sm:max-w-sm sm:mx-auto sm:w-full'
+                    : ''
+                }`}
               >
                 <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary mb-6">
                   {reason.icon}

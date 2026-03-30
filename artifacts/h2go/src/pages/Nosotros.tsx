@@ -261,7 +261,7 @@ export default function Nosotros() {
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-8">
-                    {['Abogado', 'DECAN', 'Ex-Presidente de la FDPN'].map((tag) => (
+                    {['Abogado Colegiado', 'DECAN', 'Campeón Nacional de Natación', 'Presidente FDPN 2021–2024', 'Panam Aquatics'].map((tag) => (
                       <span key={tag} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
                         {tag}
                       </span>
@@ -269,13 +269,16 @@ export default function Nosotros() {
                   </div>
 
                   <p className="text-muted-foreground leading-relaxed mb-5">
-                    Nikola Ustavdich es el visionario detrás de H2GO. Con formación jurídica y una pasión de toda la vida por los deportes acuáticos, combinó su disciplina profesional con su amor por la natación para construir una de las academias de natación más respetadas de Lima.
+                    Nikola Ustavdich es abogado colegiado, especialista en gestión de centros deportivos y deportista calificado de alto nivel (DECAN). Ha sido nadador mundialista, récord nacional y Campeón Nacional Absoluto de Natación durante 10 años consecutivos.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-5">
-                    Como ex-Presidente de la Federación Deportiva Peruana de Natación (FDPN) y entrenador certificado DECAN, Nikola aporta una combinación incomparable de experiencia en gestión deportiva y conocimiento técnico de natación a H2GO.
+                    Cuenta con una destacada trayectoria en gestión deportiva, habiendo sido Presidente de la Federación Deportiva Peruana de Natación (2021–2024), periodo en el que lideró la organización de eventos internacionales de alto nivel y la obtención de resultados históricos. Actualmente, forma parte del Consejo Directivo de Panam Aquatics.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-5">
+                    Bajo su liderazgo, H2GO se ha consolidado como un referente en la gestión de academias de natación en el Perú, implementando programas exitosos en ciudades como Lima, Trujillo, Sullana y Arequipa.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Su misión es simple: garantizar que cada niño, adolescente y adulto en Lima tenga acceso a una educación acuática de clase mundial, independientemente de su origen o experiencia.
+                    La combinación de la experiencia de Nikola Ustavdich y la visión de H2GO nos permite ofrecer un servicio de alta calidad, enfocado en el desarrollo integral de nuestros estudiantes en un entorno seguro y profesional.
                   </p>
 
                   <div className="mt-8 pt-8 border-t border-border/60 flex items-center gap-4">

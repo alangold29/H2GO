@@ -1,63 +1,92 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { motion, type Variants } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { CheckCircle, ArrowRight, User, Calendar, MapPin, Layers, MessageSquare, Loader2 } from 'lucide-react';
+import { MapPin, Clock, ArrowRight, CheckCircle, Phone } from 'lucide-react';
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
 
 const sedes = [
-  { id: 'jockey-club', label: 'Jockey Club del Perú (San Borja)' },
-  { id: 'petroperu', label: 'Club Petroperú (Miraflores)' },
-  { id: 'santa-clara', label: 'Santa Clara (Ate)' },
-  { id: 'brena', label: 'Breña' },
-  { id: 'club-chama', label: 'Club Chama (La Molina)' },
-  { id: 'jean-le-boulch', label: 'Jean Le Boulch (San Miguel)' },
-  { id: 'aopip', label: 'AOPIP (Callao)' },
+  {
+    id: 'jockey-club',
+    name: 'Jockey Club del Perú',
+    district: 'San Borja',
+    address: 'Av. Javier Prado Este 1852, San Borja',
+    hours: 'Lun–Sáb: 7:00 am – 7:00 pm',
+    img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&q=80&w=800&h=480',
+    desc: 'Nuestra sede principal con piscina temperada de 25 metros e instalaciones de primera clase.',
+    programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Semillero', 'Equipo H2GO'],
+  },
+  {
+    id: 'petroperu',
+    name: 'Club Petroperú',
+    district: 'Miraflores',
+    address: 'Av. El Rosario 250, Miraflores',
+    hours: 'Lun–Sáb: 6:30 am – 6:30 pm',
+    img: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?auto=format&fit=crop&q=80&w=800&h=480',
+    desc: 'Ambiente exclusivo con piscina semi-olímpica y vista panorámica. Perfecta para familias de Miraflores.',
+    programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Nado Libre'],
+  },
+  {
+    id: 'santa-clara',
+    name: 'Santa Clara',
+    district: 'Ate',
+    address: 'Av. La Molina 1245, Ate',
+    hours: 'Lun–Sáb: 8:00 am – 7:00 pm',
+    img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=800&h=480',
+    desc: 'Instalaciones modernas con instructores altamente calificados para el cono este de Lima.',
+    programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Semillero'],
+  },
+  {
+    id: 'brena',
+    name: 'Breña',
+    district: 'Breña',
+    address: 'Av. Arica 621, Breña',
+    hours: 'Lun–Sáb: 7:30 am – 7:30 pm',
+    img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=800&h=480',
+    desc: 'Punto de referencia en el Centro de Lima. Fácil acceso en transporte público y horario amplio.',
+    programs: ['Niños/Adolescentes', 'Adultos', 'Nado Libre'],
+  },
+  {
+    id: 'club-chama',
+    name: 'Club Chama',
+    district: 'La Molina',
+    address: 'Av. La Molina 595, La Molina',
+    hours: 'Lun–Sáb: 7:00 am – 7:00 pm',
+    img: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&q=80&w=800&h=480',
+    desc: 'Una de nuestras sedes más exclusivas: piscina de 25 m, áreas verdes y estacionamiento amplio.',
+    programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Equipo H2GO'],
+  },
+  {
+    id: 'jean-le-boulch',
+    name: 'Jean Le Boulch',
+    district: 'San Miguel',
+    address: 'Av. Universitaria 1520, San Miguel',
+    hours: 'Lun–Sáb: 7:00 am – 6:30 pm',
+    img: 'https://images.unsplash.com/photo-1560090995-01632a28895b?auto=format&fit=crop&q=80&w=800&h=480',
+    desc: 'Instalaciones renovadas y equipo de instructores certificados para toda Lima Oeste.',
+    programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Semillero'],
+  },
+  {
+    id: 'aopip',
+    name: 'AOPIP',
+    district: 'Callao',
+    address: 'Av. Oscar Benavides 3480, Callao',
+    hours: 'Lun–Sáb: 8:00 am – 6:00 pm',
+    img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&q=80&w=800&h=480',
+    desc: 'La excelencia de H2GO en el Puerto Principal del Perú. Amplio acceso desde el aeropuerto.',
+    programs: ['Niños/Adolescentes', 'Adultos', 'Nado Libre'],
+  },
 ];
 
-const schema = z.object({
-  nombre: z.string().min(2, 'El nombre debe tener al menos 2 caracteres.'),
-  edad: z
-    .number({ invalid_type_error: 'Ingresa una edad válida.' })
-    .int()
-    .min(1, 'La edad mínima es 1 año.')
-    .max(80, 'La edad máxima es 80 años.'),
-  sede: z.string().min(1, 'Selecciona una sede.'),
-  nivel: z.enum(['basico', 'intermedio', 'avanzado'], { required_error: 'Selecciona un nivel.' }),
-  notas: z.string().optional(),
-});
-
-type FormData = z.infer<typeof schema>;
-
 export default function Matricula() {
-  const { t } = useLanguage();
-  const [submitted, setSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>({
-    resolver: zodResolver(schema),
-  });
-
-  const onSubmit = async (_data: FormData) => {
-    setIsLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setIsLoading(false);
-    setSubmitted(true);
-  };
-
-  const levels = [
-    { value: 'basico', label: t('Basic', 'Básico'), desc: t('For beginners (7–10 yrs)', 'Para principiantes (7–10 años)') },
-    { value: 'intermedio', label: t('Intermediate', 'Intermedio'), desc: t('Building technique (9–14 yrs)', 'Desarrollo técnico (9–14 años)') },
-    { value: 'avanzado', label: t('Advanced', 'Avanzado'), desc: t('Competitive focus (12–17 yrs)', 'Orientación competitiva (12–17 años)') },
-  ];
-
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans">
       <Header solid />
@@ -68,7 +97,7 @@ export default function Matricula() {
         <section className="relative py-28 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1560090995-01632a28895b?auto=format&fit=crop&q=80&w=1600&h=700"
-            alt="Matrícula H2GO"
+            alt="Sedes H2GO"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
           <div className="absolute inset-0 z-[1] bg-gradient-to-br from-[#023e8a]/90 via-[#0077b6]/82 to-[#00b4d8]/75" />
@@ -80,249 +109,146 @@ export default function Matricula() {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block px-4 py-1.5 rounded-full bg-white/15 text-sky-200 text-sm font-semibold mb-6 backdrop-blur">
-                {t('Enrollment', 'Matrícula')}
+                ¿Cómo Matricularme?
               </span>
               <h1 className="text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
-                {t('Start Your ', 'Inicia Tu ')}
-                <span className="text-sky-300">{t('Swimming Journey', 'Aventura Acuática')}</span>
+                Elige tu Sede y{' '}
+                <span className="text-sky-300">Empieza a Nadar</span>
               </h1>
               <p className="text-white/80 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-                {t(
-                  'Fill in the form below and one of our coordinators will contact you within 24 hours to confirm your enrollment and schedule.',
-                  'Completa el formulario y uno de nuestros coordinadores se comunicará contigo en 24 horas para confirmar tu matrícula y horario.'
-                )}
+                Tenemos 7 sedes en Lima. Encuentra la más cercana a ti, revisa los programas disponibles y contáctanos directamente para coordinar tu matrícula.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Formulario */}
-        <section className="py-20 bg-slate-50">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimatePresence mode="wait">
-              {submitted ? (
+        {/* Grid de sedes */}
+        <section className="py-24 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <p className="text-primary font-bold tracking-wider uppercase text-sm mb-3">
+                Nuestras 7 Sedes
+              </p>
+              <h2 className="text-4xl lg:text-5xl font-extrabold">
+                ¿Cuál está más cerca{' '}
+                <span className="text-gradient">de ti?</span>
+              </h2>
+            </div>
+
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-50px' }}
+              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"
+            >
+              {sedes.map((sede) => (
                 <motion.div
-                  key="success"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-white rounded-[2.5rem] border border-border/50 shadow-xl p-12 text-center"
+                  key={sede.id}
+                  variants={fadeUp}
+                  className="group bg-white rounded-[2rem] border border-border/40 shadow-md shadow-black/5 hover:shadow-xl hover:border-primary/20 transition-all duration-300 overflow-hidden flex flex-col"
                 >
-                  <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-10 h-10 text-green-600" />
+                  {/* Foto */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={sede.img}
+                      alt={sede.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur text-primary text-xs font-bold shadow-sm">
+                      {sede.district}
+                    </span>
                   </div>
-                  <h2 className="text-3xl font-extrabold mb-4">
-                    {t('Registration Received!', '¡Solicitud Recibida!')}
-                  </h2>
-                  <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                    {t(
-                      'Thank you for your interest in H2GO. Our team will contact you within 24 hours to confirm your enrollment details and schedule your first class.',
-                      'Gracias por tu interés en H2GO. Nuestro equipo se comunicará contigo en las próximas 24 horas para confirmar los detalles de tu matrícula y programar tu primera clase.'
-                    )}
-                  </p>
-                  <a
-                    href="/"
-                    className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-primary text-white font-bold shadow-lg shadow-primary/25 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
-                  >
-                    {t('Back to Home', 'Volver al Inicio')}
-                    <ArrowRight className="w-5 h-5" />
-                  </a>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="form"
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.55 }}
-                  className="bg-white rounded-[2.5rem] border border-border/50 shadow-xl overflow-hidden"
-                >
-                  {/* Form header */}
-                  <div className="water-gradient px-10 py-8">
-                    <h2 className="text-2xl font-extrabold text-white mb-1">
-                      {t('Enrollment Form', 'Formulario de Matrícula')}
-                    </h2>
-                    <p className="text-white/75 text-sm">
-                      {t('All fields marked * are required.', 'Todos los campos marcados con * son obligatorios.')}
+
+                  {/* Contenido */}
+                  <div className="p-7 flex-1 flex flex-col">
+                    <h3 className="text-xl font-extrabold mb-2 group-hover:text-primary transition-colors">
+                      {sede.name}
+                    </h3>
+
+                    {/* Dirección y horario */}
+                    <div className="space-y-1.5 mb-4">
+                      <div className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <MapPin className="w-3.5 h-3.5 shrink-0 mt-0.5 text-primary" />
+                        <span>{sede.address}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <Clock className="w-3.5 h-3.5 shrink-0 text-primary" />
+                        <span>{sede.hours}</span>
+                      </div>
+                    </div>
+
+                    {/* Descripción */}
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
+                      {sede.desc}
                     </p>
-                  </div>
 
-                  <form onSubmit={handleSubmit(onSubmit)} className="px-10 py-10 space-y-8">
-
-                    {/* Nombre */}
-                    <div>
-                      <label className="flex items-center gap-2 text-sm font-bold mb-2">
-                        <User className="w-4 h-4 text-primary" />
-                        {t("Student's Full Name *", 'Nombre Completo del Alumno *')}
-                      </label>
-                      <input
-                        {...register('nombre')}
-                        placeholder={t("e.g. María García López", "Ej. María García López")}
-                        className="w-full px-4 py-3 rounded-xl border border-border/60 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
-                      />
-                      {errors.nombre && (
-                        <p className="text-destructive text-xs mt-1.5 font-medium">{errors.nombre.message}</p>
-                      )}
-                    </div>
-
-                    {/* Edad */}
-                    <div>
-                      <label className="flex items-center gap-2 text-sm font-bold mb-2">
-                        <Calendar className="w-4 h-4 text-primary" />
-                        {t("Student's Age *", 'Edad del Alumno *')}
-                      </label>
-                      <input
-                        {...register('edad', { valueAsNumber: true })}
-                        type="number"
-                        min={1}
-                        max={80}
-                        placeholder={t("e.g. 8", "Ej. 8")}
-                        className="w-full px-4 py-3 rounded-xl border border-border/60 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
-                      />
-                      {errors.edad && (
-                        <p className="text-destructive text-xs mt-1.5 font-medium">{errors.edad.message}</p>
-                      )}
-                    </div>
-
-                    {/* Sede */}
-                    <div>
-                      <label className="flex items-center gap-2 text-sm font-bold mb-2">
-                        <MapPin className="w-4 h-4 text-primary" />
-                        {t("Venue of Interest *", 'Sede de Interés *')}
-                      </label>
-                      <select
-                        {...register('sede')}
-                        className="w-full px-4 py-3 rounded-xl border border-border/60 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
-                        defaultValue=""
-                      >
-                        <option value="" disabled>
-                          {t('Select a venue...', 'Selecciona una sede...')}
-                        </option>
-                        {sedes.map((s) => (
-                          <option key={s.id} value={s.id}>
-                            {s.label}
-                          </option>
-                        ))}
-                      </select>
-                      {errors.sede && (
-                        <p className="text-destructive text-xs mt-1.5 font-medium">{errors.sede.message}</p>
-                      )}
-                    </div>
-
-                    {/* Nivel */}
-                    <div>
-                      <label className="flex items-center gap-2 text-sm font-bold mb-3">
-                        <Layers className="w-4 h-4 text-primary" />
-                        {t("Swimming Level *", 'Nivel de Natación *')}
-                      </label>
-                      <div className="grid sm:grid-cols-3 gap-3">
-                        {levels.map((lvl) => (
-                          <label
-                            key={lvl.value}
-                            className="relative cursor-pointer"
+                    {/* Programas disponibles */}
+                    <div className="mb-6">
+                      <p className="text-xs font-bold text-foreground/50 uppercase tracking-wider mb-2.5">
+                        Programas
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {sede.programs.map((prog) => (
+                          <span
+                            key={prog}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/8 text-primary text-xs font-semibold"
                           >
-                            <input
-                              type="radio"
-                              value={lvl.value}
-                              {...register('nivel')}
-                              className="sr-only peer"
-                            />
-                            <div className="border-2 border-border/50 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 hover:border-primary/40 transition-all duration-200">
-                              <span className="block font-bold text-base mb-1">{lvl.label}</span>
-                              <span className="block text-xs text-muted-foreground">{lvl.desc}</span>
-                            </div>
-                          </label>
+                            <CheckCircle className="w-3 h-3" />
+                            {prog}
+                          </span>
                         ))}
                       </div>
-                      {errors.nivel && (
-                        <p className="text-destructive text-xs mt-1.5 font-medium">{errors.nivel.message}</p>
-                      )}
                     </div>
 
-                    {/* Notas */}
-                    <div>
-                      <label className="flex items-center gap-2 text-sm font-bold mb-2">
-                        <MessageSquare className="w-4 h-4 text-primary" />
-                        {t('Additional Notes (optional)', 'Notas Adicionales (opcional)')}
-                      </label>
-                      <textarea
-                        {...register('notas')}
-                        rows={3}
-                        placeholder={t(
-                          'Any relevant information: health conditions, preferred schedule, etc.',
-                          'Cualquier información relevante: condiciones de salud, horario preferido, etc.'
-                        )}
-                        className="w-full px-4 py-3 rounded-xl border border-border/60 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition resize-none"
-                      />
-                    </div>
-
-                    {/* Submit */}
-                    <button
-                      type="submit"
-                      disabled={isLoading}
-                      className="w-full flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-primary text-white font-bold text-base shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:translate-y-0 transition-all duration-300"
+                    {/* CTA */}
+                    <a
+                      href={`/sede/${sede.id}`}
+                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-primary text-white font-bold text-sm shadow-md shadow-primary/20 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
                     >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-5 h-5 animate-spin" />
-                          {t('Submitting...', 'Enviando...')}
-                        </>
-                      ) : (
-                        <>
-                          {t('Submit Enrollment Request', 'Enviar Solicitud de Matrícula')}
-                          <ArrowRight className="w-5 h-5" />
-                        </>
-                      )}
-                    </button>
-
-                    <p className="text-xs text-center text-muted-foreground">
-                      {t(
-                        'By submitting this form you agree to be contacted by H2GO regarding your enrollment request. We will never share your data with third parties.',
-                        'Al enviar este formulario aceptas ser contactado por H2GO en relación a tu solicitud de matrícula. Nunca compartiremos tus datos con terceros.'
-                      )}
-                    </p>
-                  </form>
+                      Ver sede
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
                 </motion.div>
-              )}
-            </AnimatePresence>
+              ))}
+            </motion.div>
           </div>
         </section>
 
-        {/* Info cards */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  num: '01',
-                  title: t('Fill the Form', 'Completa el Formulario'),
-                  desc: t('Share your details so we can find the best program for you.', 'Comparte tus datos para encontrar el mejor programa para ti.'),
-                },
-                {
-                  num: '02',
-                  title: t('We Contact You', 'Te Contactamos'),
-                  desc: t('Our team will call or email you within 24 hours to confirm everything.', 'Nuestro equipo te llamará o escribirá en 24 horas para confirmar todo.'),
-                },
-                {
-                  num: '03',
-                  title: t('Start Swimming!', '¡Empieza a Nadar!'),
-                  desc: t('Attend your first class and discover why H2GO is Lima\'s #1 swim school.', 'Asiste a tu primera clase y descubre por qué H2GO es la escuela #1 de Lima.'),
-                },
-              ].map((step, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="text-center p-8"
-                >
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                    <span className="text-primary font-extrabold text-2xl">{step.num}</span>
-                  </div>
-                  <h3 className="font-extrabold text-xl mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
-                </motion.div>
-              ))}
+        {/* CTA de contacto */}
+        <section className="relative py-20 overflow-hidden">
+          <div className="absolute inset-0 water-gradient z-0" />
+          <div className="absolute inset-0 z-[1] opacity-10 bg-[radial-gradient(circle_at_70%_50%,white,transparent_60%)]" />
+          <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
+            <h2 className="text-4xl font-extrabold text-white mb-4">
+              ¿Tienes Alguna Duda?
+            </h2>
+            <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
+              Nuestro equipo está disponible para orientarte sobre programas, horarios y costos. Escríbenos y te respondemos rápido.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="https://wa.me/51987654321"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-primary font-bold text-base shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              >
+                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.118 1.526 5.845L0 24l6.34-1.498A11.963 11.963 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.371l-.359-.213-3.764.889.935-3.668-.234-.375A9.82 9.82 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+                </svg>
+                WhatsApp
+              </a>
+              <a
+                href="tel:+51987654321"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/15 border border-white/30 text-white font-bold text-base backdrop-blur hover:bg-white/25 transition-all duration-300"
+              >
+                <Phone className="w-5 h-5" />
+                +51 987 654 321
+              </a>
             </div>
           </div>
         </section>

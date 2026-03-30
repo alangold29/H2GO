@@ -206,15 +206,15 @@ export const sedesData: Sede[] = [
       },
       {
         title: 'Hora Libre · Lun–Sáb (sujeto a disponibilidad)',
-        colHeaders: ['Por Hora', '4 Horas', '8 Horas'],
+        colHeaders: ['Por Hora'],
         rows: [
-          { label: 'Público en general',               cols: ['S/ 10.50', 'S/ 42.00', 'S/ 84.00'] },
-          { label: 'Vecino con DNI de Breña',          cols: ['S/ 8.50',  'S/ 34.00', 'S/ 68.00'] },
-          { label: 'Adulto mayor — Breña (60+)',       cols: ['S/ 5.00',  null,         null] },
-          { label: 'Adulto mayor — otros distritos',   cols: ['S/ 8.00',  null,         null] },
-          { label: 'Personas con discapacidad',        cols: ['S/ 5.00',  null,         null] },
-          { label: 'Niños/as residentes Breña (≤11)',  cols: ['S/ 5.00',  null,         null] },
-          { label: 'Niños/as otros distritos (≤11)',   cols: ['S/ 7.00',  null,         null] },
+          { label: 'Público en general',               cols: ['S/ 10.50'] },
+          { label: 'Vecino con DNI de Breña',          cols: ['S/ 8.50'] },
+          { label: 'Adulto mayor — Breña (60+)',       cols: ['S/ 5.00'] },
+          { label: 'Adulto mayor — otros distritos',   cols: ['S/ 8.00'] },
+          { label: 'Personas con discapacidad',        cols: ['S/ 5.00'] },
+          { label: 'Niños/as residentes Breña (≤11)', cols: ['S/ 5.00'] },
+          { label: 'Niños/as otros distritos (≤11)',  cols: ['S/ 7.00'] },
         ],
       },
       {

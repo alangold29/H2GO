@@ -2,7 +2,7 @@ import { motion, type Variants } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { sedesData } from '@/data/sedes';
-import { MapPin, Clock, ArrowRight, CheckCircle, Phone } from 'lucide-react';
+import { MapPin, Clock, ArrowRight, Phone } from 'lucide-react';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -112,24 +112,6 @@ export default function Matricula() {
                     <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
                       {sede.desc}
                     </p>
-
-                    {/* Programas disponibles */}
-                    <div className="mb-6">
-                      <p className="text-xs font-bold text-foreground/50 uppercase tracking-wider mb-2.5">
-                        Programas
-                      </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {sede.programs.map((prog) => (
-                          <span
-                            key={prog}
-                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/8 text-primary text-xs font-semibold"
-                          >
-                            <CheckCircle className="w-3 h-3" />
-                            {prog}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
 
                     {/* CTA */}
                     <a

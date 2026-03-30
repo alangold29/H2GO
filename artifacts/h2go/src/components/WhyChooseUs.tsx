@@ -1,42 +1,34 @@
-import { useLanguage } from '@/contexts/LanguageContext';
-import { HeartPulse, Droplets, Award, GraduationCap, Sparkles, Smile } from 'lucide-react';
+import { HeartHandshake, ShieldCheck, Trophy, Sparkles, UserCheck } from 'lucide-react';
+
+const reasons = [
+  {
+    icon: <HeartHandshake className="w-8 h-8" />,
+    title: 'Aprendizaje con Cuidado',
+    desc: 'Cada alumno recibe atención personalizada. Ajustamos el ritmo y el método a cada persona, sin prisa y sin presión.',
+  },
+  {
+    icon: <ShieldCheck className="w-8 h-8" />,
+    title: 'Ambiente 100% Seguro',
+    desc: 'Instalaciones certificadas, protocolos de seguridad acuática e instructores con formación en primeros auxilios.',
+  },
+  {
+    icon: <Trophy className="w-8 h-8" />,
+    title: 'Estándares de Excelencia',
+    desc: 'Metodología estructurada en niveles, instructores certificados y seguimiento real del progreso de cada alumno.',
+  },
+  {
+    icon: <Sparkles className="w-8 h-8" />,
+    title: 'Instalaciones Impecables',
+    desc: 'Agua temperada con filtración continua. Piscinas, vestuarios y áreas comunes revisados y limpiados permanentemente.',
+  },
+  {
+    icon: <UserCheck className="w-8 h-8" />,
+    title: 'Atención de Calidad',
+    desc: 'Recepción amable, comunicación fluida con los padres y acompañamiento en cada etapa del proceso de aprendizaje.',
+  },
+];
 
 export default function WhyChooseUs() {
-  const { t } = useLanguage();
-
-  const reasons = [
-    {
-      icon: <HeartPulse className="w-8 h-8" />,
-      title: t('Learn with Confidence', 'Aprende con Confianza'),
-      desc: t('We focus on overcoming fear through patient, empathetic instruction.', 'Nos enfocamos en superar el miedo mediante instrucción paciente y empática.')
-    },
-    {
-      icon: <GraduationCap className="w-8 h-8" />,
-      title: t('Certified Instructors', 'Instructores Certificados'),
-      desc: t('Professionals trained in aquatic safety and child psychology.', 'Profesionales capacitados en seguridad acuática y psicología infantil.')
-    },
-    {
-      icon: <Sparkles className="w-8 h-8" />,
-      title: t('Clean & Modern', 'Limpio y Moderno'),
-      desc: t('State-of-the-art filtration and continuously heated water.', 'Filtración de última generación y agua continuamente temperada.')
-    },
-    {
-      icon: <Award className="w-8 h-8" />,
-      title: t('Step-by-Step Progress', 'Progreso Paso a Paso'),
-      desc: t('Structured levels ensure you visibly track skill development.', 'Niveles estructurados aseguran que sigas el desarrollo de habilidades.')
-    },
-    {
-      icon: <Smile className="w-8 h-8" />,
-      title: t('Family Friendly', 'Ambiente Familiar'),
-      desc: t('Viewing areas and amenities designed for parents comfort.', 'Áreas de observación y comodidades diseñadas para los padres.')
-    },
-    {
-      icon: <Droplets className="w-8 h-8" />,
-      title: t('Bilingual Support', 'Soporte Bilingüe'),
-      desc: t('Classes available in English and Spanish for all expats and locals.', 'Clases disponibles en inglés y español para expatriados y locales.')
-    }
-  ];
-
   return (
     <section id="why-us" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,29 +37,26 @@ export default function WhyChooseUs() {
           <div className="lg:col-span-1">
             <div className="sticky top-32">
               <h2 className="text-primary font-bold tracking-wider uppercase text-sm mb-3">
-                {t('Why Choose H2GO', 'Por Qué Elegir H2GO')}
+                Por Qué Elegir H2GO
               </h2>
               <h3 className="text-4xl font-extrabold mb-6">
-                {t('More than just a ', 'Más que una simple ')}
-                <span className="text-gradient">{t('Swim School', 'Escuela de Natación')}</span>
+                Más que una simple{' '}
+                <span className="text-gradient">Escuela de Natación</span>
               </h3>
               <p className="text-muted-foreground text-lg mb-8">
-                {t(
-                  "We believe swimming is a vital life skill. That's why we've created an environment where learning is joyful, safe, and highly effective.",
-                  "Creemos que nadar es una habilidad vital. Por eso hemos creado un entorno donde aprender es alegre, seguro y altamente efectivo."
-                )}
+                Creemos que nadar es una habilidad vital. Por eso hemos creado un entorno donde aprender es alegre, seguro y altamente efectivo.
               </p>
 
               <img
                 src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&q=80&w=600&h=500"
-                alt="Clean modern swimming pool"
+                alt="Piscina limpia y moderna"
                 loading="lazy"
                 className="rounded-3xl shadow-xl rotate-2 hover:rotate-0 transition-transform duration-500"
               />
             </div>
           </div>
 
-          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-8">
+          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-8 content-start">
             {reasons.map((reason, i) => (
               <div
                 key={i}
@@ -77,9 +66,7 @@ export default function WhyChooseUs() {
                   {reason.icon}
                 </div>
                 <h4 className="text-xl font-bold mb-3">{reason.title}</h4>
-                <p className="text-muted-foreground leading-relaxed">
-                  {reason.desc}
-                </p>
+                <p className="text-muted-foreground leading-relaxed">{reason.desc}</p>
               </div>
             ))}
           </div>

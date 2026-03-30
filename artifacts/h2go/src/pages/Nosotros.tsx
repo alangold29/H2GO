@@ -1,8 +1,7 @@
 import { motion, type Variants } from 'framer-motion';
-import { useLanguage } from '@/contexts/LanguageContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Award, Target, Eye, Users, Clock, Trophy } from 'lucide-react';
+import { Award, Target, Eye, HeartHandshake, ShieldCheck, Trophy, Sparkles, UserCheck } from 'lucide-react';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -14,44 +13,43 @@ const stagger: Variants = {
   show: { transition: { staggerChildren: 0.15 } },
 };
 
+const milestones = [
+  { year: '2014', label: 'Fundación en Lima' },
+  { year: '2016', label: 'Primeras 3 sedes' },
+  { year: '2019', label: 'Más de 1,000 alumnos' },
+  { year: '2022', label: '7 sedes activas' },
+  { year: '2024', label: '10 años de excelencia' },
+];
+
+const compromisos = [
+  {
+    icon: <HeartHandshake className="w-6 h-6" />,
+    title: 'Trato con Cuidado',
+    desc: 'En H2GO, cada alumno importa. Nuestros instructores se toman el tiempo de conocer a cada persona: sus miedos, su ritmo y sus metas. Nadie aprende en soledad.',
+  },
+  {
+    icon: <ShieldCheck className="w-6 h-6" />,
+    title: 'Lugar Seguro',
+    desc: 'La seguridad es nuestra primera responsabilidad. Todas nuestras piscinas cumplen estándares de higiene y seguridad acuática. Nuestros instructores están capacitados en primeros auxilios y rescate acuático.',
+  },
+  {
+    icon: <Trophy className="w-6 h-6" />,
+    title: 'Excelencia',
+    desc: 'Excelencia no es una promesa, es nuestra práctica diaria. Metodología basada en niveles progresivos, instructores con certificación internacional y evaluaciones periódicas del progreso de cada alumno.',
+  },
+  {
+    icon: <Sparkles className="w-6 h-6" />,
+    title: 'Siempre Limpio',
+    desc: 'La higiene es parte de nuestra promesa. Nuestras piscinas utilizan sistemas de filtración de última generación. Los vestuarios y áreas comunes se limpian y revisan constantemente para garantizar un ambiente impecable.',
+  },
+  {
+    icon: <UserCheck className="w-6 h-6" />,
+    title: 'Bien Atendido',
+    desc: 'Ser bien atendido empieza desde antes de entrar al agua. Desde el primer contacto hasta cada clase, el equipo H2GO responde con amabilidad, comunica el avance de los alumnos y está disponible para cualquier consulta.',
+  },
+];
+
 export default function Nosotros() {
-  const { t } = useLanguage();
-
-  const milestones = [
-    { year: '2014', label: t('Founded in Lima', 'Fundación en Lima') },
-    { year: '2016', label: t('First 3 venues', 'Primeras 3 sedes') },
-    { year: '2019', label: t('1,000+ students', 'Más de 1,000 alumnos') },
-    { year: '2022', label: t('7 active venues', '7 sedes activas') },
-    { year: '2024', label: t('10 years of excellence', '10 años de excelencia') },
-  ];
-
-  const values = [
-    {
-      icon: <Users className="w-6 h-6" />,
-      title: t('Personalized Attention', 'Atención Personalizada'),
-      desc: t(
-        'Every student receives a tailored learning path based on their age, level, and goals.',
-        'Cada alumno recibe un camino de aprendizaje personalizado según su edad, nivel y metas.'
-      ),
-    },
-    {
-      icon: <Trophy className="w-6 h-6" />,
-      title: t('Excellence & Safety', 'Excelencia y Seguridad'),
-      desc: t(
-        'We uphold the highest standards of water safety and technical instruction in every session.',
-        'Mantenemos los más altos estándares de seguridad acuática e instrucción técnica en cada sesión.'
-      ),
-    },
-    {
-      icon: <Clock className="w-6 h-6" />,
-      title: t('10 Years of Trust', '10 Años de Confianza'),
-      desc: t(
-        'A decade of transforming fearful beginners into confident swimmers across Lima.',
-        'Una década transformando principiantes temerosos en nadadores confiados en todo Lima.'
-      ),
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans">
       <Header solid />
@@ -74,17 +72,14 @@ export default function Nosotros() {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block px-4 py-1.5 rounded-full bg-white/15 text-sky-200 text-sm font-semibold mb-6 backdrop-blur">
-                {t('About Us', 'Sobre Nosotros')}
+                Sobre Nosotros
               </span>
               <h1 className="text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
-                {t('10 Years Building ', '10 Años Construyendo ')}
-                <span className="text-sky-300">{t('Water Champions', 'Campeones del Agua')}</span>
+                10 Años Construyendo{' '}
+                <span className="text-sky-300">Campeones del Agua</span>
               </h1>
               <p className="text-white/80 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-                {t(
-                  'H2GO was born from a simple conviction: every person deserves access to quality swimming education in a safe and inspiring environment.',
-                  'H2GO nació de una convicción simple: toda persona merece acceso a una educación de natación de calidad en un entorno seguro e inspirador.'
-                )}
+                H2GO nació de una convicción simple: toda persona merece acceso a una educación de natación de calidad en un entorno seguro e inspirador.
               </p>
             </motion.div>
           </div>
@@ -101,23 +96,17 @@ export default function Nosotros() {
                 viewport={{ once: true, margin: '-80px' }}
               >
                 <motion.p variants={fadeUp} className="text-primary font-bold tracking-wider uppercase text-sm mb-3">
-                  {t('Our History', 'Nuestra Historia')}
+                  Nuestra Historia
                 </motion.p>
                 <motion.h2 variants={fadeUp} className="text-4xl lg:text-5xl font-extrabold mb-6">
-                  {t('A Decade of ', 'Una Década de ')}
-                  <span className="text-gradient">{t('Aquatic Excellence', 'Excelencia Acuática')}</span>
+                  Una Década de{' '}
+                  <span className="text-gradient">Excelencia Acuática</span>
                 </motion.h2>
                 <motion.p variants={fadeUp} className="text-muted-foreground text-lg leading-relaxed mb-6">
-                  {t(
-                    'Founded in 2014, H2GO Swimming School began with one pool and a clear vision: to offer professional swimming education accessible to all ages and levels in Lima.',
-                    'Fundada en 2014, H2GO Swimming School comenzó con una piscina y una visión clara: ofrecer educación de natación profesional accesible para todas las edades y niveles en Lima.'
-                  )}
+                  Fundada en 2014, H2GO Swimming School comenzó con una piscina y una visión clara: ofrecer educación de natación profesional accesible para todas las edades y niveles en Lima.
                 </motion.p>
                 <motion.p variants={fadeUp} className="text-muted-foreground text-lg leading-relaxed">
-                  {t(
-                    'Today, with 7 venues spread across Lima, a team of certified instructors, and more than 2,000 active students, we are the leading swimming school in Peru.',
-                    'Hoy, con 7 sedes distribuidas en Lima, un equipo de instructores certificados y más de 2,000 alumnos activos, somos la escuela de natación líder en el Perú.'
-                  )}
+                  Hoy, con 7 sedes distribuidas en Lima, un equipo de instructores certificados y más de 2,000 alumnos activos, somos la escuela de natación líder en el Perú.
                 </motion.p>
               </motion.div>
 
@@ -150,11 +139,11 @@ export default function Nosotros() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <p className="text-primary font-bold tracking-wider uppercase text-sm mb-3">
-                {t('Strategic Direction', 'Dirección Estratégica')}
+                Dirección Estratégica
               </p>
               <h2 className="text-4xl lg:text-5xl font-extrabold mb-6">
-                {t('Mission & ', 'Misión & ')}
-                <span className="text-gradient">{t('Vision', 'Visión')}</span>
+                Misión &{' '}
+                <span className="text-gradient">Visión</span>
               </h2>
             </div>
 
@@ -170,12 +159,9 @@ export default function Nosotros() {
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <Target className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-2xl font-extrabold mb-4">{t('Our Mission', 'Nuestra Misión')}</h3>
+                <h3 className="text-2xl font-extrabold mb-4">Nuestra Misión</h3>
                 <p className="text-muted-foreground leading-relaxed text-lg">
-                  {t(
-                    'To offer accessible, safe, and high-quality swimming education to all people in Lima, fostering confidence, physical health, and a lasting love for the aquatic environment.',
-                    'Ofrecer educación de natación accesible, segura y de alta calidad a todas las personas de Lima, fomentando la confianza, la salud física y el amor duradero por el entorno acuático.'
-                  )}
+                  Ofrecer educación de natación accesible, segura y de alta calidad a todas las personas de Lima, fomentando la confianza, la salud física y el amor duradero por el entorno acuático.
                 </p>
               </motion.div>
 
@@ -190,17 +176,24 @@ export default function Nosotros() {
                 <div className="w-14 h-14 rounded-2xl bg-secondary/50 flex items-center justify-center mb-6 group-hover:bg-secondary/70 transition-colors">
                   <Eye className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-2xl font-extrabold mb-4">{t('Our Vision', 'Nuestra Visión')}</h3>
+                <h3 className="text-2xl font-extrabold mb-4">Nuestra Visión</h3>
                 <p className="text-muted-foreground leading-relaxed text-lg">
-                  {t(
-                    'To be recognized as the leading swimming school in Peru by 2030, expanding our presence to all districts of Lima and setting the standard for aquatic education in Latin America.',
-                    'Ser reconocidos como la escuela de natación líder en el Perú para el 2030, expandiendo nuestra presencia a todos los distritos de Lima y marcando el estándar de educación acuática en Latinoamérica.'
-                  )}
+                  Ser reconocidos como la escuela de natación líder en el Perú para el 2030, expandiendo nuestra presencia a todos los distritos de Lima y marcando el estándar de educación acuática en Latinoamérica.
                 </p>
               </motion.div>
             </div>
 
-            {/* Valores */}
+            {/* Nuestros Compromisos — 5 valores del propietario */}
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <p className="text-primary font-bold tracking-wider uppercase text-sm mb-3">
+                Lo Que Nos Define
+              </p>
+              <h2 className="text-3xl lg:text-4xl font-extrabold">
+                Nuestros{' '}
+                <span className="text-gradient">Compromisos</span>
+              </h2>
+            </div>
+
             <motion.div
               variants={stagger}
               initial="hidden"
@@ -208,18 +201,20 @@ export default function Nosotros() {
               viewport={{ once: true, margin: '-60px' }}
               className="grid md:grid-cols-3 gap-6"
             >
-              {values.map((v, i) => (
+              {compromisos.map((c, i) => (
                 <motion.div
                   key={i}
                   variants={fadeUp}
-                  className="bg-white rounded-2xl p-8 border border-border/50 flex gap-5 items-start hover:shadow-md hover:border-primary/25 transition-all"
+                  className={`bg-white rounded-2xl p-8 border border-border/50 flex gap-5 items-start hover:shadow-md hover:border-primary/25 transition-all${
+                    i === 3 ? ' md:col-start-1' : ''
+                  }`}
                 >
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-                    {v.icon}
+                    {c.icon}
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg mb-2">{v.title}</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{v.desc}</p>
+                    <h4 className="font-bold text-lg mb-2">{c.title}</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{c.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -232,11 +227,11 @@ export default function Nosotros() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <p className="text-primary font-bold tracking-wider uppercase text-sm mb-3">
-                {t('Founder', 'Fundador')}
+                Fundador
               </p>
               <h2 className="text-4xl lg:text-5xl font-extrabold">
-                {t('Meet the ', 'Conoce al ')}
-                <span className="text-gradient">{t('Visionary Behind H2GO', 'Visionario detrás de H2GO')}</span>
+                Conoce al{' '}
+                <span className="text-gradient">Visionario detrás de H2GO</span>
               </h2>
             </div>
 
@@ -254,7 +249,7 @@ export default function Nosotros() {
                     <div className="w-28 h-28 rounded-full bg-white/20 border-4 border-white/40 mx-auto mb-4 flex items-center justify-center">
                       <span className="text-4xl font-extrabold text-white">NU</span>
                     </div>
-                    <p className="text-white/70 text-sm">{t('Photo coming soon', 'Foto próximamente')}</p>
+                    <p className="text-white/70 text-sm">Foto próximamente</p>
                   </div>
                 </div>
 
@@ -262,15 +257,11 @@ export default function Nosotros() {
                 <div className="md:col-span-3 p-10 lg:p-14">
                   <h3 className="text-3xl font-extrabold mb-1">Nikola Ustavdich</h3>
                   <p className="text-primary font-semibold mb-6">
-                    {t('Founder & Director of H2GO Swimming School', 'Fundador y Director de H2GO Swimming School')}
+                    Fundador y Director de H2GO Swimming School
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-8">
-                    {[
-                      t('Attorney at Law', 'Abogado'),
-                      'DECAN',
-                      t('Ex-President of FDPN', 'Ex-Presidente de la FDPN'),
-                    ].map((tag) => (
+                    {['Abogado', 'DECAN', 'Ex-Presidente de la FDPN'].map((tag) => (
                       <span key={tag} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
                         {tag}
                       </span>
@@ -278,31 +269,19 @@ export default function Nosotros() {
                   </div>
 
                   <p className="text-muted-foreground leading-relaxed mb-5">
-                    {t(
-                      'Nikola Ustavdich is the visionary behind H2GO. With a legal background and a lifelong passion for aquatic sports, he combined his professional discipline with his love for swimming to build one of Lima\'s most respected swimming academies.',
-                      'Nikola Ustavdich es el visionario detrás de H2GO. Con formación jurídica y una pasión de toda la vida por los deportes acuáticos, combinó su disciplina profesional con su amor por la natación para construir una de las academias de natación más respetadas de Lima.'
-                    )}
+                    Nikola Ustavdich es el visionario detrás de H2GO. Con formación jurídica y una pasión de toda la vida por los deportes acuáticos, combinó su disciplina profesional con su amor por la natación para construir una de las academias de natación más respetadas de Lima.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-5">
-                    {t(
-                      'As former President of the Federación Deportiva Peruana de Natación (FDPN) and a DECAN-certified coach, Nikola brings an unparalleled combination of governance expertise and technical swimming knowledge to H2GO.',
-                      'Como ex-Presidente de la Federación Deportiva Peruana de Natación (FDPN) y entrenador certificado DECAN, Nikola aporta una combinación incomparable de experiencia en gestión deportiva y conocimiento técnico de natación a H2GO.'
-                    )}
+                    Como ex-Presidente de la Federación Deportiva Peruana de Natación (FDPN) y entrenador certificado DECAN, Nikola aporta una combinación incomparable de experiencia en gestión deportiva y conocimiento técnico de natación a H2GO.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    {t(
-                      'His mission is simple: to ensure that every child, teen, and adult in Lima has access to world-class aquatic education — regardless of their background or experience.',
-                      'Su misión es simple: garantizar que cada niño, adolescente y adulto en Lima tenga acceso a una educación acuática de clase mundial, independientemente de su origen o experiencia.'
-                    )}
+                    Su misión es simple: garantizar que cada niño, adolescente y adulto en Lima tenga acceso a una educación acuática de clase mundial, independientemente de su origen o experiencia.
                   </p>
 
                   <div className="mt-8 pt-8 border-t border-border/60 flex items-center gap-4">
                     <Award className="w-8 h-8 text-primary shrink-0" />
                     <p className="text-sm text-muted-foreground italic">
-                      {t(
-                        '"Every person who enters the water at H2GO leaves more confident, healthier, and more connected to life."',
-                        '"Cada persona que entra al agua en H2GO sale más segura, más saludable y más conectada con la vida."'
-                      )}
+                      "Cada persona que entra al agua en H2GO sale más segura, más saludable y más conectada con la vida."
                       <span className="block font-semibold text-foreground mt-1">— Nikola Ustavdich</span>
                     </p>
                   </div>

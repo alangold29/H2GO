@@ -201,11 +201,11 @@ export default function SedeDetail() {
               transition={{ duration: 0.6 }}
             >
               <a
-                href="/matricula"
+                href="/"
                 className="inline-flex items-center gap-1 text-sky-300 text-sm font-semibold mb-4 hover:text-white transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" />
-                {t('All Venues', 'Todas las Sedes')}
+                {t('Back to Home', 'Volver al Inicio')}
               </a>
               <div className="flex items-center gap-3 mb-3">
                 <span className="px-3 py-1 rounded-full bg-white/15 backdrop-blur text-white text-sm font-semibold">

@@ -38,11 +38,11 @@ export default function Header({ solid = false }: HeaderProps) {
         <div className="flex items-center justify-between">
 
           {/* Logo */}
-          <a href="/" className="shrink-0">
+          <a href="/" className="shrink-0 transition-opacity hover:opacity-80">
             <img
               src={`${import.meta.env.BASE_URL}images/h2go-logo.png`}
-              alt="H2GO Logo"
-              className="h-12 w-auto object-contain"
+              alt="H2GO Swimming School"
+              className="h-10 w-auto object-contain"
             />
           </a>
 

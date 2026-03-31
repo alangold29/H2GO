@@ -25,11 +25,11 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <a href="/" className="inline-block mb-6">
+            <a href="/" className="inline-block mb-6 transition-opacity hover:opacity-80">
               <img
                 src={`${import.meta.env.BASE_URL}images/h2go-logo.png`}
-                alt="H2GO Logo"
-                className="h-12 w-auto object-contain brightness-0 invert"
+                alt="H2GO Swimming School"
+                className="h-10 w-auto object-contain brightness-0 invert"
               />
             </a>
             <p className="text-sm leading-relaxed mb-6">

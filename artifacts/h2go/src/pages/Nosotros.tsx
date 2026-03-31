@@ -243,14 +243,13 @@ export default function Nosotros() {
               className="bg-gradient-to-br from-slate-50 to-sky-50 rounded-[2.5rem] border border-border/50 overflow-hidden shadow-xl shadow-black/5 max-w-5xl mx-auto"
             >
               <div className="grid md:grid-cols-5 gap-0">
-                {/* Foto placeholder */}
-                <div className="md:col-span-2 relative min-h-[320px] md:min-h-0 bg-gradient-to-br from-[#023e8a] to-[#00b4d8] flex items-center justify-center">
-                  <div className="text-center text-white p-10">
-                    <div className="w-28 h-28 rounded-full bg-white/20 border-4 border-white/40 mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-4xl font-extrabold text-white">NU</span>
-                    </div>
-                    <p className="text-white/70 text-sm">Foto próximamente</p>
-                  </div>
+                {/* Foto fundador */}
+                <div className="md:col-span-2 relative min-h-[320px] md:min-h-0 overflow-hidden">
+                  <img
+                    src="/images/nikola-fundador.jpg"
+                    alt="Nikola Ustavdich, Fundador de H2GO"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
 
                 {/* Contenido */}

@@ -97,7 +97,7 @@ export const sedesData: Sede[] = [
     phone: '908 814 301',
     hours: 'Lun–Sáb: 8:00 am – 7:00 pm',
     img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=1200&h=700',
-    secondaryImg: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=600&h=400',
+    secondaryImg: '/images/swimmer-h2go.jpg',
     desc: 'La sede de Santa Clara atiende a las familias de la zona con instalaciones modernas y un equipo de instructores altamente calificados.',
     programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Semillero'],
     pricing: [
@@ -128,7 +128,7 @@ export const sedesData: Sede[] = [
     address: 'Jr. General Vidal 619, Breña',
     phone: '967 423 797',
     hours: 'Lun–Sáb: 7:30 am – 7:30 pm',
-    img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=1200&h=700',
+    img: '/images/swimmer-h2go.jpg',
     secondaryImg: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&q=80&w=600&h=400',
     desc: 'La sede de Breña es nuestro punto de referencia en el Centro de Lima. Con fácil acceso en transporte público y un horario amplio, es ideal para trabajadores y familias del centro.',
     programs: ['Niños/Adolescentes', 'Adultos', 'Nado Libre'],

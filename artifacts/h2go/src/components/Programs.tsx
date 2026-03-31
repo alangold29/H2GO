@@ -53,7 +53,7 @@ export default function Programs() {
         'One-on-one sessions tailored to your specific goals and pace.',
         'Sesiones individuales adaptadas a tus metas y ritmo específicos.'
       ),
-      img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=600&h=400',
+      img: '/images/swimmer-h2go.jpg',
     },
   ];
 

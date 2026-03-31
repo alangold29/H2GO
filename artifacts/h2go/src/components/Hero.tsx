@@ -20,7 +20,7 @@ const slides = [
     tag: { en: 'All levels welcome', es: 'Todos los niveles' },
   },
   {
-    img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=800&h=800',
+    img: '/images/swimmer-h2go.jpg',
     badge: { icon: '🎯', en: 'Private Coaching', es: 'Clases Privadas' },
     tag: { en: '1-on-1 attention', es: 'Atención individual' },
   },

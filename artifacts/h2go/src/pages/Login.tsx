@@ -50,7 +50,7 @@ export default function Login() {
       {/* Left side — image */}
       <div className="hidden lg:block lg:w-1/2 relative overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=85&w=900&h=1200"
+          src="/images/swimmer-h2go.jpg"
           alt="H2GO swimmer"
           className="absolute inset-0 w-full h-full object-cover"
         />

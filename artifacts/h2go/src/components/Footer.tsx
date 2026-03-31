@@ -25,17 +25,12 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <a href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                <img
-                  src={`${import.meta.env.BASE_URL}images/h2go-logo.png`}
-                  alt="H2GO Logo"
-                  className="w-8 h-8 object-contain"
-                />
-              </div>
-              <span className="font-display font-bold text-2xl tracking-tight text-white">
-                H2GO
-              </span>
+            <a href="/" className="inline-block mb-6">
+              <img
+                src={`${import.meta.env.BASE_URL}images/h2go-logo.png`}
+                alt="H2GO Logo"
+                className="h-12 w-auto object-contain brightness-0 invert"
+              />
             </a>
             <p className="text-sm leading-relaxed mb-6">
               Escuela de natación premium en Lima, Perú. Creemos en desarrollar confianza y habilidades a través de un entorno acuático de apoyo, limpio y alegre.

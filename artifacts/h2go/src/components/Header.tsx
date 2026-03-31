@@ -38,17 +38,12 @@ export default function Header({ solid = false }: HeaderProps) {
         <div className="flex items-center justify-between">
 
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 group shrink-0">
-            <div className="relative w-10 h-10 overflow-hidden rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center">
-              <img
-                src={`${import.meta.env.BASE_URL}images/h2go-logo.png`}
-                alt="H2GO Logo"
-                className="w-8 h-8 object-contain"
-              />
-            </div>
-            <span className="font-display font-bold text-2xl tracking-tight text-primary">
-              H2GO
-            </span>
+          <a href="/" className="shrink-0">
+            <img
+              src={`${import.meta.env.BASE_URL}images/h2go-logo.png`}
+              alt="H2GO Logo"
+              className="h-12 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Nav */}

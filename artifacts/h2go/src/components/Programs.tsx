@@ -13,7 +13,7 @@ export default function Programs() {
         'Water acclimation and basic safety skills with parent participation.',
         'Aclimatación al agua y habilidades básicas de seguridad con padres.'
       ),
-      img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=600&h=400',
+      img: '/images/swimmer2-h2go.jpg',
     },
     {
       id: 2,

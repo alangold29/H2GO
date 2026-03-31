@@ -96,7 +96,7 @@ export const sedesData: Sede[] = [
     address: 'Av. Garcilaso de la Vega 105 C, José Luis Bustamante y Rivero',
     phone: '908 814 301',
     hours: 'Lun–Sáb: 8:00 am – 7:00 pm',
-    img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=1200&h=700',
+    img: '/images/swimmer2-h2go.jpg',
     secondaryImg: '/images/swimmer-h2go.jpg',
     desc: 'La sede de Santa Clara atiende a las familias de la zona con instalaciones modernas y un equipo de instructores altamente calificados.',
     programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Semillero'],
@@ -158,7 +158,7 @@ export const sedesData: Sede[] = [
     phone: '948 156 491 / 988 398 649',
     hours: 'Lun–Sáb: 7:00 am – 7:00 pm',
     img: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&q=80&w=1200&h=700',
-    secondaryImg: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=600&h=400',
+    secondaryImg: '/images/swimmer2-h2go.jpg',
     desc: 'Club Chama es una de nuestras sedes más exclusivas, con piscina de 25 metros, áreas verdes y estacionamiento amplio. Perfecta para las familias de Surco.',
     programs: ['Aqua Baby', 'Niños/Adolescentes', 'Adultos', 'Equipo H2GO'],
     pricing: [

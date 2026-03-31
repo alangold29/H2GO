@@ -10,7 +10,7 @@ const slides = [
     tag: { en: '4 – 12 yrs', es: '4 – 12 años' },
   },
   {
-    img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=800&h=800',
+    img: '/images/swimmer2-h2go.jpg',
     badge: { icon: '👶', en: 'Babies & Toddlers', es: 'Bebés y Pequeños' },
     tag: { en: 'From 6 months', es: 'Desde 6 meses' },
   },

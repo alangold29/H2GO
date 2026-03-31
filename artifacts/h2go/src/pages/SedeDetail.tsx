@@ -246,11 +246,6 @@ export default function SedeDetail() {
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <div className="col-span-2 rounded-2xl overflow-hidden border-2 border-dashed border-border/60 bg-slate-50 flex items-center justify-center py-10">
-                    <p className="text-muted-foreground text-sm font-medium">
-                      Más fotos próximamente
-                    </p>
-                  </div>
                 </motion.div>
               </div>
             </div>

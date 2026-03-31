@@ -100,7 +100,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/50">
-          <p>© {new Date().getFullYear()} H2GO Swim School. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} H2GO. Todos los derechos reservados.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
             <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>

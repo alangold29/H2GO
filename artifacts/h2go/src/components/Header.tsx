@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, LogIn } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 interface HeaderProps {
   solid?: boolean;
@@ -62,13 +62,6 @@ export default function Header({ solid = false }: HeaderProps) {
           {/* Actions */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="/login"
-              title="Iniciar sesión"
-              className="flex items-center justify-center w-9 h-9 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/10 transition-all duration-200"
-            >
-              <LogIn className="w-5 h-5" />
-            </a>
-            <a
               href="/matricula"
               className="px-5 py-2.5 rounded-full font-semibold text-sm bg-primary text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap"
             >
@@ -106,19 +99,11 @@ export default function Header({ solid = false }: HeaderProps) {
                   {item.label}
                 </a>
               ))}
-              <div className="flex items-center justify-between pt-5 mt-1">
-                <a
-                  href="/login"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2 text-sm font-semibold text-foreground/70 hover:text-primary transition-colors"
-                >
-                  <LogIn className="w-5 h-5" />
-                  Iniciar sesión
-                </a>
+              <div className="pt-5 mt-1">
                 <a
                   href="/matricula"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-6 py-3 rounded-xl font-bold text-sm bg-primary text-white shadow-lg shadow-primary/25"
+                  className="block w-full text-center px-6 py-3 rounded-xl font-bold text-sm bg-primary text-white shadow-lg shadow-primary/25"
                 >
                   Matricúlate
                 </a>

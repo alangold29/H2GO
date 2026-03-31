@@ -48,8 +48,8 @@ export default function WhyChooseUs() {
               </p>
 
               <img
-                src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&q=80&w=600&h=500"
-                alt="Piscina limpia y moderna"
+                src="/images/swimmer2-h2go.jpg"
+                alt="Nadadores en competencia H2GO"
                 loading="lazy"
                 className="rounded-3xl shadow-xl rotate-2 hover:rotate-0 transition-transform duration-500"
               />

@@ -25,7 +25,7 @@ const slides = [
     tag: { en: '1-on-1 attention', es: 'Atención individual' },
   },
   {
-    img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&q=80&w=800&h=800',
+    img: '/images/aopip-h2go.jpg',
     badge: { icon: '✅', en: 'Heated Clean Pool', es: 'Piscina Temperada' },
     tag: { en: 'Year-round comfort', es: 'Comodidad todo el año' },
   },

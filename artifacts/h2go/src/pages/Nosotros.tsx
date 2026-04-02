@@ -169,9 +169,7 @@ export default function Nosotros() {
                   <Eye className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="text-2xl font-extrabold mb-4">Nuestra Visión</h3>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  Ser reconocidos como la escuela de natación líder en el Perú para el 2030, expandiendo nuestra presencia a todos los distritos de Lima y marcando el estándar de educación acuática en Latinoamérica.
-                </p>
+                <p className="text-muted-foreground leading-relaxed text-lg">Ser la academia líder en enseñanza de natación en el Perú, reconocida por la calidad de nuestra metodología, la excelencia en el servicio y nuestro compromiso con los deportistas.</p>
               </motion.div>
             </div>
 

@@ -53,7 +53,6 @@ export default function Nosotros() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans">
       <Header solid />
-
       <main className="flex-1">
 
         {/* Hero interior */}
@@ -102,9 +101,7 @@ export default function Nosotros() {
                   Una Década de{' '}
                   <span className="text-gradient">Excelencia Acuática</span>
                 </motion.h2>
-                <motion.p variants={fadeUp} className="text-muted-foreground text-lg leading-relaxed mb-6">
-                  Fundada en 2014, H2GO Swimming School comenzó con una piscina y una visión clara: ofrecer educación de natación profesional accesible para todas las edades y niveles en Lima.
-                </motion.p>
+                <motion.p variants={fadeUp} className="text-muted-foreground text-lg leading-relaxed mb-6">Somos una academia de natación con sedes en Perú, fundada y dirigida por Nikola Ustavdich, especializada en la enseñanza para todas las edades y la gestion integral de piscinas, implementando soluciones sostenibles que  fortalecen la formación deportiva.</motion.p>
                 <motion.p variants={fadeUp} className="text-muted-foreground text-lg leading-relaxed">
                   Hoy, con 7 sedes distribuidas en Lima, un equipo de instructores certificados y más de 2,000 alumnos activos, somos la escuela de natación líder en el Perú.
                 </motion.p>
@@ -286,7 +283,6 @@ export default function Nosotros() {
         </section>
 
       </main>
-
       <Footer />
     </div>
   );

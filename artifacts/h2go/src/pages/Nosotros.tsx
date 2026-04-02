@@ -154,9 +154,7 @@ export default function Nosotros() {
                   <Target className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="text-2xl font-extrabold mb-4">Nuestra Misión</h3>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  Ofrecer educación de natación accesible, segura y de alta calidad a todas las personas de Lima, fomentando la confianza, la salud física y el amor duradero por el entorno acuático.
-                </p>
+                <p className="text-muted-foreground leading-relaxed text-lg">Ofrecer enseñanza de alta calidad, a través una experiencia de servicio excepcional.</p>
               </motion.div>
 
               {/* Visión */}

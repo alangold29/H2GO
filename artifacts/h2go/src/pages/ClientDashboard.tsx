@@ -1,10 +1,5 @@
 import { useState } from 'react';
-import {
-  Home, CalendarDays, TrendingUp, Users, UserCircle,
-  Bell, ChevronRight, Star, Clock, MapPin, BookOpen,
-  MessageCircle, Award, CheckCircle2, Circle, LogOut,
-  Phone, Mail, ArrowRight, Waves
-} from 'lucide-react';
+import { Hop as Home, CalendarDays, TrendingUp, Users, CircleUser as UserCircle, Bell, ChevronRight, Star, Clock, MapPin, BookOpen, MessageCircle, Award, CircleCheck as CheckCircle2, Circle, LogOut, Phone, Mail, ArrowRight, Waves } from 'lucide-react';
 
 /* ── Demo data ── */
 const PARENT = {
@@ -200,8 +195,7 @@ export default function ClientDashboard() {
                   ].map((a, i) => (
                     <button
                       key={i}
-                      onClick={a.action ?? undefined}
-                      {...(a.href ? { onClick: () => window.location.href = a.href } : {})}
+                      onClick={a.href ? () => window.location.href = a.href : a.action}
                       className="bg-white rounded-2xl p-4 text-left border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-150 group"
                     >
                       <div className={`w-10 h-10 rounded-xl ${a.color} flex items-center justify-center mb-3`}>
